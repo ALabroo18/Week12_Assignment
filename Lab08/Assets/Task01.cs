@@ -25,10 +25,10 @@ public class Task01 : MonoBehaviour
     */
 
     // Start is called before the first frame update
+
+    Queue LoginQueue = new Queue();
     void Start()
     {
-
-        Debug.Log("Hello");
         for (int i = 0; i < Names.Length; ++i)
         {
             int xcount = Random.Range(0, 25);
@@ -36,12 +36,35 @@ public class Task01 : MonoBehaviour
             
         }
         Debug.Log("Initial login queue created. ");
+
+        for(int i = 0; i < Names.Length; ++i)
+        {
+            string nameHolder;
+            nameHolder = Names[i];
+            StartCoroutine(JoinQueue(nameHolder));
+            Debug.Log("There are " + LoginQueue.Count + " player(s) in the queue: ");
+            nameHolder = (string)LoginQueue.Dequeue();
+            StartCoroutine(PrintLogin(nameHolder));
+        }
+    }
+
+    IEnumerator JoinQueue(string x)
+    {
+        LoginQueue.Enqueue(x);
+        Debug.Log(x + " is trying to login and added to the login queue");
+        yield return new WaitForSeconds(2f);
+    }
+
+    IEnumerator PrintLogin(string x)
+    {
+        Debug.Log(x + " is now inside the game.");
+        yield return new WaitForSeconds(8f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Queue<string> LoginQueue = new Queue<string>();
+        
 
 
     }
