@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Task01 : MonoBehaviour
 {
-    public string[] Names = {"Tom", "Afred", "Freddy", "Frederick", "Leon", "Greg", "Bob", "Billy", "Sherlock", "Watson", "Emilia", "Jerry", "Faye",
+    private string[] Names = {"Tom", "Afred", "Freddy", "Frederick", "Leon", "Greg", "Bob", "Billy", "Sherlock", "Watson", "Emilia", "Jerry", "Faye",
         "James", "Richard", "Pam", "Peter", "Sakina", "Bianka", "Yevdokiya" };
     //Last name initials
-    public string[] Letters = { " A", " B", " C", " D", " E", " F", " G", " H", " I", " J", " K", " L", " M", " N", " O", " P", " Q", " R", " S", " T", " U", " V", " W", " X", " Y", " Z" };
+    private string[] Letters = { " A", " B", " C", " D", " E", " F", " G", " H", " I", " J", " K", " L", " M", " N", " O", " P", " Q", " R", " S", " T", " U", " V", " W", " X", " Y", " Z" };
 
     //since Invoke can't use parameters, this int is used to track and make sure the array index doesn't go out of bounds
     private int x = 0;
@@ -35,6 +35,15 @@ public class Task01 : MonoBehaviour
             Invoke("JoinQueue", joinTime);
             Invoke("PrintLogin", randomDequeueTime);
         }
+
+        //Because of the random timings, the current playercount may not be displayed after all the logins
+        //This will call a method that shows that the queue is truly empty after 10 seconds (Which should be enough for all the calculations to be done by then)
+        Invoke("DisplayPlayerCount", 10f);
+    }
+
+    void DisplayPlayerCount()
+    {
+        Debug.Log("There are " + LoginQueue.Count + " player(s) in the queue");
     }
 
     //uses int x to queue the Names string[], nameholder used to prevent any misnamings displayed
@@ -49,7 +58,7 @@ public class Task01 : MonoBehaviour
     //Shows queue, dequeues and assigns dequeued name to nameholder to display in debug log
     void PrintLogin()
     {
-        Debug.Log("There are " + LoginQueue.Count + " player(s) in the queue: ");
+        Debug.Log("There are " + LoginQueue.Count + " player(s) in the queue");
         nameHolder = (string)LoginQueue.Dequeue();
         Debug.Log(nameHolder + " is now inside the game.");
 
