@@ -393,6 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1903085341}
+  - component: {fileID: 1903085342}
   m_Layer: 0
   m_Name: Task 2
   m_TagString: Untagged
@@ -415,3 +416,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1903085342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903085340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b271d75c7ecc6745bbf1cbd91dccfd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Names:
+  - Tom
+  - Afred
+  - Freddy
+  - Frederick
+  - Leon
+  - Greg
+  - Bob
+  - Billy
+  - Sherlock
+  - Watson
+  - Emilia
+  - Jerry
+  - Faye
+  - James
+  - Richard
+  - Pam
+  - Peter
+  - Sakina
+  - Bianka
+  - Yevdokiya
+  randNames:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
